@@ -1,9 +1,6 @@
-<%= content_tag :div, id: "book-#{book.id}" do %>
-
-<tr>
-  <td><%= book.title %></td>
-  <td><%= book.author %></td>
-</tr>
-
+<%= content_tag :tr, id: "book-#{book.id}" do %>
+  
+    <td><%= book.title %></td>
+    
+    <td><%= book.author %></td>
 <% end %>
-

@@ -10,6 +10,15 @@
 <body>
 
   <div class="container">
+    <br/>
+    <div id="flash-container">
+      <% if flash[:notice] %>
+        <div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= flash[:notice] unless flash[:notice].blank? %></div>
+      <% elsif flash[:error] %>
+        <div class="alert alert-warning alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= flash[:error] unless flash[:error].blank? %></div><br/><br/><br/>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </div>
 </body>

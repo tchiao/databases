@@ -18,7 +18,14 @@
 
 * {
   font-family: Raleway;
+}
+
+.body, .primary_record {
   color:#626262;
+}
+
+.secondary_record {
+  color:#909090;
 }
 
 .header-text {
@@ -80,4 +87,30 @@
 
 .table > tbody > tr > th {
   border-top:none !important;
+}
+
+.center-block {
+  float:none;
+}
+
+.red-font {
+  color:green;
+}
+
+#flash-container {
+  width:200px;
+  position:fixed;
+  right:50px;
+}
+
+.alert-success {
+  background-color:#a3d8c7;
+  border-color:#99cbbb;
+  color:white;
+}
+
+.alert-warning {
+  background-color:#f0c984;
+  border-color:#e9bb6a;
+  color:white;
 }

@@ -7,35 +7,51 @@
 </div>
 <br/>
 
+<div class="row">
+  <div class="col-md-7 center-block">
+  <%= form_tag books_path, method: 'get', id: 'database-search' do %>
+    <p>
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: 'form-control' %>
+        <span class="input-group-btn">
+          <%= submit_tag "Search", class: 'btn btn-default', :name => nil %>
+        </span>
+      </div>
+      
+    </p>
+  <% end %>
+  </div>
+</div>
+
 <div class="col-md-5">
   <div>books</div>
-  <table class="table">
+  <%= content_tag :table, class: "table #{model_class(@book_status)}" do %>
     <tr>
       <th>title</td>
       <th>author</td>
     </tr>
-    <%= render partial: 'book', collection: @books %>
-  </table>
+      <%= render partial: 'book', collection: @books %>
+  <% end %>
 </div>
 
 <div class="col-md-3">
   <div>ownerships</div>
-  <table class="table">
+  <%= content_tag :table, class: "table #{model_class(@ownership_status)}" do %>
     <tr>
       <th>status</th>
     </tr>
     <%= render partial: 'ownership', collection: @ownership_statuses %>
-  </table>
+  <% end %>
 </div>
 
 <div class="col-md-4">
   <div>readers</div>
-  <table class="table">
+  <%= content_tag :table, class: "table #{model_class(@reader_status)}" do %>
     <tr>
       <th>name</th>
       <th>age</th>
       <th>gender</th>
     </tr>
-    <%= render partial: 'reader', collection: @readers %>
-  </table>
+    <%= render partial: 'reader', collection: @readers.sort_by {|v| v.name[/\s(\w+)/,1] } %>
+  <% end %>
 </div>
